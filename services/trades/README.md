@@ -17,7 +17,7 @@ cd docker-compose
 make start-redpanda
 ```
 
-You can check the message bus is up and running by going to the Redpanda console, on `localhost:8080`. 
+You can check the message bus is up and running by going to the Redpanda console, on `localhost:8080`.
 
 ### 2. Set configuration parameters in the `.env` file
 Once Redpanda is up and running, fill in the configuration parameters in the `settings.env` file.
@@ -38,5 +38,3 @@ which is exaclty what the `run` command in our `Makefile` does
 ```bash
 make run
 ```
-
-

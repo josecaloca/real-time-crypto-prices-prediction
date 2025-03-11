@@ -2,7 +2,7 @@
 ## Redpanda management
 ########################################
 
-start-redpanda: 
+start-redpanda:
 	docker compose -f redpanda.yml up -d
 
 stop-redpanda:
@@ -23,7 +23,7 @@ stop-elasticsearch:
 	docker compose -f elasticsearch.yml down
 
 ########################################
-## Technical indicators pipeline 
+## Technical indicators pipeline
 ########################################
 
 # for live data
@@ -39,14 +39,14 @@ stop-technical-indicators-live:
 # for historical data
 build-technical-indicators-historical:
 	docker compose -f technical-indicators-historical.yml build
-	
+
 backfill-technical-indicators: build-technical-indicators-historical
 	$(eval RUN_ID := $(shell uuidgen))
 	@echo "Starting backfill with RUN_ID: $(RUN_ID)"
 	RUN_ID=$(RUN_ID) docker compose -f technical-indicators-historical.yml up -d
 
 ########################################
-## News signal pipeline 
+## News signal pipeline
 ########################################
 
 # for live data
