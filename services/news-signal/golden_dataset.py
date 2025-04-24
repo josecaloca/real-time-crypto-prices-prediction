@@ -48,6 +48,7 @@ def generate_dataset(
     news = df['title'].tolist()
 
     # random sample of n news
+    random.seed(123)
     news = random.sample(news, n)
 
     # llm

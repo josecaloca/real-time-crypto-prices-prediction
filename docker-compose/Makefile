@@ -40,6 +40,12 @@ stop-technical-indicators-live:
 build-technical-indicators-historical:
 	docker compose -f technical-indicators-historical.yml build
 
+start-technical-indicators-historical: build-technical-indicators-historical
+	docker compose -f technical-indicators-historical.yml up -d
+
+stop-technical-indicators-historical:
+	docker compose -f technical-indicators-historical.yml down
+
 backfill-technical-indicators: build-technical-indicators-historical
 	$(eval RUN_ID := $(shell uuidgen))
 	@echo "Starting backfill with RUN_ID: $(RUN_ID)"
